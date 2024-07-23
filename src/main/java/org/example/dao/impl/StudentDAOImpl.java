@@ -20,6 +20,7 @@ public class StudentDAOImpl implements StudentDAO {
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     @Override
     public void insert(Student student) {
+        System.out.println();
         try(
                 Connection c = DBUtil.getConnection();
                 Statement st = c.createStatement();
