@@ -20,7 +20,6 @@ public class StudentDAOImpl implements StudentDAO {
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     @Override
     public void insert(Student student) {
-        System.out.println();
         try(
                 Connection c = DBUtil.getConnection();
                 Statement st = c.createStatement();
@@ -33,7 +32,8 @@ public class StudentDAOImpl implements StudentDAO {
                 //传参方便
                 //有效防止sql注入攻击的问题
         ){
-          String sql = "insert into student (name,gender ,birthday,addr,qqnumber)"+
+            System.out.println();
+            String sql = "insert into student (name,gender ,birthday,addr,qqnumber)"+
                   "values('%s','%s','%s','%s','%d')";
           sql = String.format(sql,student.getName(),student.getGender(),sdf.format(student.getBirthday()),student.getAddr(),student.getQqnumber());
             st.execute(sql);
